@@ -20,12 +20,12 @@ else
     do
     mkfifo pp.$k
     arg="$arg pp.$k"
-    gunzip -c $f > pp.$k &
+    gunzip -c $f | sort -k1,1 -k2,2n > pp.$k &
     let "k++"
     done
     
     # merging 
-    cat $arg >> $outprefix.bed
+    sort -m -k1,1 -k2,2n $arg >> $outprefix.bed
     
     # compressing
     gzip -f $outprefix.bed
