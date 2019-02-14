@@ -20,12 +20,9 @@ else
     do
     mkfifo pp.$k
     arg="$arg pp.$k"
-    gunzip -c $f | tail -n +2 > pp.$k &
+    gunzip -c $f > pp.$k &
     let "k++"
     done
-    
-    # header
-    gunzip -c ${INFILES[0]} | head -1 > $outprefix.bed
     
     # merging 
     cat $arg >> $outprefix.bed
