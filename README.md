@@ -1,3 +1,4 @@
 # docker-4dn-mergebed
 
-`docker 4dndcic/4dn-mergebed:v1`
+Concatenates unsorted gzipped bed files into an unsorted merged gzipped bed file.
+* docker images: `4dndcic/4dn-mergebed:v1`
