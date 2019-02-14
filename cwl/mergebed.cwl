@@ -10,7 +10,7 @@
     - "run-merge-bed.sh"
   hints: 
     - 
-      dockerPull: "duplexa/4dn-mergebed:v1"
+      dockerPull: "4dndcic/4dn-mergebed:v1"
       class: "DockerRequirement"
   cwlVersion: "v1.0"
   class: "CommandLineTool"
