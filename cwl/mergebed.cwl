@@ -7,7 +7,7 @@
       outputBinding: 
         glob: "$(inputs.outprefix + '.bed.gz')"
   baseCommand: 
-    - "run-merge-bed.sh"
+    - "run-mergebed.sh"
   hints: 
     - 
       dockerPull: "4dndcic/4dn-mergebed:v1"
