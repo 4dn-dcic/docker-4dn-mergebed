@@ -25,10 +25,18 @@
       type:
         - "string"
     - 
+      id: "#sortv"
+      inputBinding: 
+        position: 2
+        separate: true
+        default: 0
+      type:
+        - "string"
+    - 
       id: "#input_bed"
       inputBinding: 
         itemSeparator: " "
-        position: 2
+        position: 3
         separate: true
       type:
         - 
