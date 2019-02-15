@@ -1,15 +1,28 @@
 #!/bin/bash
 outprefix=$1
 shift
+sortv=$1  # if 1: sort chr1, chr2, chr3, if 0: sort chr1, chr10, chr11
+shift
 
 INFILESTR=${@}
 INFILES=(${INFILESTR// / })
 NFILES=${#INFILES[@]}
 
+if [ $sortv -eq "1" ]
+then
+
+    SORT_OPTION="-k1,1 -k2,2n -k3,3n -V"
+    
+else
+
+    SORT_OPTION="-k1,1 -k2,2n -k3,3n"
+
+fi
+
 if [ $NFILES -eq 1 ]
 then
 
-    cp $1 $outprefix.bed.gz
+    gunzip -c $INFILESTR | sort $SORT_OPTION | gzip -fc > $outprefix.bed.gz
 
 else
 
@@ -20,15 +33,12 @@ else
     do
     mkfifo pp.$k
     arg="$arg pp.$k"
-    gunzip -c $f | tail -n +2 > pp.$k &
+    gunzip -c $f | sort $SORT_OPTION > pp.$k &
     let "k++"
     done
     
-    # header
-    gunzip -c ${INFILES[0]} | head -1 > $outprefix.bed
-    
     # merging 
-    cat $arg >> $outprefix.bed
+    sort -m $SORT_OPTION $arg >> $outprefix.bed
     
     # compressing
     gzip -f $outprefix.bed

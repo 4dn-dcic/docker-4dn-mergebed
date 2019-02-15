@@ -20,6 +20,8 @@ RUN apt-get update -y && apt-get install -y \
 ENV LC_ALL=C.UTF-8
 ENV LANG=C.UTF-8
 
+WORKDIR /usr/local/bin
+
 # wrapper
 COPY scripts/ .
 RUN chmod +x run*.sh

@@ -7,10 +7,10 @@
       outputBinding: 
         glob: "$(inputs.outprefix + '.bed.gz')"
   baseCommand: 
-    - "run-merge-bed.sh"
+    - "run-mergebed.sh"
   hints: 
     - 
-      dockerPull: "duplexa/4dn-mergebed:v1"
+      dockerPull: "4dndcic/4dn-mergebed:v1"
       class: "DockerRequirement"
   cwlVersion: "v1.0"
   class: "CommandLineTool"
@@ -25,10 +25,18 @@
       type:
         - "string"
     - 
+      id: "#sortv"
+      inputBinding: 
+        position: 2
+        separate: true
+        default: 0
+      type:
+        - "string"
+    - 
       id: "#input_bed"
       inputBinding: 
         itemSeparator: " "
-        position: 2
+        position: 3
         separate: true
       type:
         - 
