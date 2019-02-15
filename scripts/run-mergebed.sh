@@ -11,11 +11,11 @@ NFILES=${#INFILES[@]}
 if [ $sortv -eq "1" ]
 then
 
-    SORT_OPTION = "-k1,1 -k2,2n -k3,3n -V"
+    SORT_OPTION="-k1,1 -k2,2n -k3,3n -V"
     
 else
 
-    SORT_OPTION = "-k1,1 -k2,2n -k3,3n"
+    SORT_OPTION="-k1,1 -k2,2n -k3,3n"
 
 fi
 
