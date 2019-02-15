@@ -2,7 +2,7 @@
     "input_bed": [
         {
             "class": "File", 
-            "path": "../test_files/test_file1.bed.gz"
+            "path": "../test_files/test_file1.bed.gzz"
         },
         {
             "class": "File", 
