@@ -8,5 +8,6 @@
             "class": "File", 
             "path": "../test_files/test_file2.bed.gz"
         }
-    ]
+    ],
+    "sortv": "0"
 }
