@@ -1,4 +1,5 @@
 #!/bin/bash
+set -o pipefail
 outprefix=$1
 shift
 sortv=$1  # if 1: sort chr1, chr2, chr3, if 0: sort chr1, chr10, chr11
