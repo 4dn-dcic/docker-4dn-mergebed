@@ -38,7 +38,7 @@ else
     done
     
     # merging & compressing
-    sort -m $SORT_OPTION $arg | gzip -fc -> $outprefix.bed || exit
+    sort -m $SORT_OPTION $arg | gzip -fc - > $outprefix.bed.gz || exit
     
     # clean up
     k=1
