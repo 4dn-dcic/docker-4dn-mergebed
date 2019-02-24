@@ -35,6 +35,7 @@ else
     mkfifo pp.$k
     arg="$arg pp.$k"
     gunzip -c $f | sort $SORT_OPTION > pp.$k || exit &
+    pid.$k=$!
     let "k++"
     done
     
@@ -47,6 +48,12 @@ else
     do
     rm pp.$k
     let "k++"
+    done
+
+    k=1
+    for f in $INFILESTR
+    do
+    wait $pid.$k || exit
     done
 
 fi
